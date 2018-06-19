@@ -3,6 +3,7 @@ import subprocess
 import logging
 import sys
 
+
 def is_instance_already_open(application):
     output = subprocess.run(
         # list all running windows
@@ -31,11 +32,12 @@ def focus_instance_of(application):
 
 
 def run():
-    logging.basicConfig(filename="OpenExistingInstance.debug", level=logging.DEBUG)
+    logging.basicConfig(
+        filename="OpenExistingInstance.debug", level=logging.DEBUG)
 
     application = sys.argv[1]
     new_application = sys.argv[2] if len(sys.argv) > 1 else application
-    
+
     if (is_instance_already_open(application)):
         focus_instance_of(application)
     else:
