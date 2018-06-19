@@ -12,12 +12,12 @@ def is_instance_already_open(application):
 def open_new_instance_of(application):
     # Open a new instance of given application
     # Focus new instance
-    subprocess.run([application])
+    subprocess.call([application)])
 
 
 def focus_instance_of(application):
     # Moves the window to the current desktop, raises it und gives it focus
-    subprocess.call(application)
+    subprocess.run(["wmctrl", "-R", application])
 
 
 application = "Hyper"
