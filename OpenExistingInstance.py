@@ -32,6 +32,7 @@ def focus_instance_of(application):
 
 
 def run():
+    # TODO: create log file relative to script path instead of home directory
     logging.basicConfig(
         filename="OpenExistingInstance.debug", level=logging.DEBUG)
 
