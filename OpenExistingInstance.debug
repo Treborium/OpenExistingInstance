@@ -1,0 +1,21 @@
+DEBUG:root:is_instance_already_open:
+0x03200003  0 Ubuntu python read command line arguments at DuckDuckGo - Firefox Nightly
+0x02e00006  2 Ubuntu Slack - LogMeIn
+0x04a00001  1 Ubuntu OpenExistingInstance.py - OpenExistingInstance - Visual Studio Code
+0x02600001  2 Ubuntu (1) WhatsApp
+0x04e00001  2 Ubuntu Hämatom - Emanuela
+0x05600015  1 Ubuntu Settings
+0x04000007  1 Ubuntu Home
+
+DEBUG:root:open_new_instance_of: Opening new instance of furo@Ubuntu
+DEBUG:root:/home/furo/Chapter_Day/OpenExistingInstance/OpenExistingInstance.py
+DEBUG:root:is_instance_already_open:
+0x03200003  0 Ubuntu python read command line arguments at DuckDuckGo - Firefox Nightly
+0x02e00006  2 Ubuntu Slack - LogMeIn
+0x04a00001  1 Ubuntu OpenExistingInstance.py - OpenExistingInstance - Visual Studio Code
+0x02600001  2 Ubuntu (1) WhatsApp
+0x04e00001  2 Ubuntu Hämatom - Emanuela
+0x05600015  1 Ubuntu Settings
+0x04000007  1 Ubuntu Home
+
+DEBUG:root:open_new_instance_of: Opening new instance of furo@Ubuntu

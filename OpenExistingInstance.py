@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import subprocess
 import logging
-
+import sys
 
 def is_instance_already_open(application):
     output = subprocess.run(
@@ -13,7 +13,7 @@ def is_instance_already_open(application):
 
 
 def open_new_instance_of(application):
-    return_code = subprocess.call(["hyper"])
+    return_code = subprocess.call([application])
     if return_code != 0:
         # TODO: handle error
         logging.error(
@@ -31,13 +31,12 @@ def focus_instance_of(application):
 
 
 def run():
-    logging.basicConfig(filename="debug.log", level=logging.DEBUG)
-    application = "furo@Ubuntu"
-    # application = "Firefox"
+    logging.basicConfig(filename="OpenExistingInstance.debug", level=logging.DEBUG)
+    application = sys.argv[1]
     if (is_instance_already_open(application)):
         focus_instance_of(application)
     else:
-        open_new_instance_of(application)
+        open_new_instance_of(sys.argv[2])
 
 
 if __name__ == "__main__":
