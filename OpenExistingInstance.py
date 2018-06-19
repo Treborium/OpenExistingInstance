@@ -12,7 +12,7 @@ def is_instance_already_open(application):
 def open_new_instance_of(application):
     # Open a new instance of given application
     # Focus new instance
-    subprocess.call([application)])
+    subprocess.call(["hyper"])
 
 
 def focus_instance_of(application):
@@ -20,8 +20,13 @@ def focus_instance_of(application):
     subprocess.run(["wmctrl", "-R", application])
 
 
-application = "Hyper"
-if (is_instance_already_open(application)):
-    focus_instance_of(application)
-else:
-    open_new_instance_of(application)
+def run():
+    application = "furo@Ubuntu"
+    if (is_instance_already_open(application)):
+        focus_instance_of(application)
+    else:
+        open_new_instance_of(application)
+
+
+if __name__ == "__main__":
+    run()
