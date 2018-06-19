@@ -1,8 +1,9 @@
-#! /usr/bin/python3
+#!/usr/bin/env python3
 import subprocess
 
 
 def is_instance_already_open(application):
+    print("Checking if isntance of " + application + " is open...")
     output = subprocess.run(
         # list all running windows
         ["wmctrl", "-l"], stdout=subprocess.PIPE).stdout.decode("utf-8")
@@ -12,11 +13,13 @@ def is_instance_already_open(application):
 def open_new_instance_of(application):
     # Open a new instance of given application
     # Focus new instance
+    print("Open new instance of " + application)
     subprocess.call(["hyper"])
 
 
 def focus_instance_of(application):
     # Moves the window to the current desktop, raises it und gives it focus
+    print("Put " + application + " in focus...")
     subprocess.run(["wmctrl", "-R", application])
 
 
