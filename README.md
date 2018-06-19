@@ -8,9 +8,10 @@ In order to use this script you need to have a window manager that is supported 
 
 ### Example
 From a Terminal:
-`./OpenExistingInstance.py "Firefox" "Chrome"`\n
+`./OpenExistingInstance.py "Firefox" "Chrome"`
+
 Via a Keyboardshortcut in Gnome:
-`python3 ./OpenExistingInstance.py "Firefox "Chrome"`\n
+`python3 ./OpenExistingInstance.py "Firefox "Chrome"`
 
 Here we try to focus Firefox, if no instance of Firefox is currently running we'll launch Chrome.
 
