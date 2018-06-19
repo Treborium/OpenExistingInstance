@@ -32,11 +32,14 @@ def focus_instance_of(application):
 
 def run():
     logging.basicConfig(filename="OpenExistingInstance.debug", level=logging.DEBUG)
+
     application = sys.argv[1]
+    new_application = sys.argv[2] if len(sys.argv) > 1 else application
+    
     if (is_instance_already_open(application)):
         focus_instance_of(application)
     else:
-        open_new_instance_of(sys.argv[2])
+        open_new_instance_of(new_application)
 
 
 if __name__ == "__main__":
