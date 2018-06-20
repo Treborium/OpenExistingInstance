@@ -4,9 +4,10 @@ This little python script moves a given application in focus. If no instance of 
 ## Usage
 Simply call the script file from your terminal or via a keyboard shortcut with the application you want to focus as the 1st argument and the application you want to launch as the 2nd argument. If no 2nd argument is provided it will use the first as the launch application. 
 
+### Requirements
 In order to use this script you need to have a window manager that is supported by the wmctrl module
 
-### Example
+### Getting Started
 From a Terminal:
 `./OpenExistingInstance.py "Firefox" "Chrome"`
 
