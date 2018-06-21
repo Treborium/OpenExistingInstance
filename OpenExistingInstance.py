@@ -31,7 +31,7 @@ def focus_instance_of(application):
         "focus_instance_of: Putting {0} in focus".format(application))
 
 
-def run():
+if __name__ == "__main__":
     # TODO: create log file relative to script path instead of home directory
     logging.basicConfig(
         filename="OpenExistingInstance.debug", level=logging.DEBUG)
@@ -45,5 +45,4 @@ def run():
         open_new_instance_of(new_application)
 
 
-if __name__ == "__main__":
-    run()
+
