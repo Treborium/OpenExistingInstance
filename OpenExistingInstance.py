@@ -31,7 +31,7 @@ def focus_instance_of(application):
         "focus_instance_of: Putting {0} in focus".format(application))
 
 
-def run():
+if __name__ == "__main__":
     logging.basicConfig(
         filename="OpenExistingInstance.debug", level=logging.DEBUG)
 
@@ -42,7 +42,3 @@ def run():
         focus_instance_of(application)
     else:
         open_new_instance_of(new_application)
-
-
-if __name__ == "__main__":
-    run()
