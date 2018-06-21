@@ -22,7 +22,7 @@ def is_instance_already_open(application):
 
     logging.debug("is_instance_already_open:\n{0}".format(
         running_applications))
-    return application in running_applications
+    return application.lower() in running_applications.lower()
 
 
 def open_new_instance_of(application):
