@@ -33,8 +33,9 @@ def open_new_instance_of(application):
 
 
 def focus_instance_of(application):
+    app_id = get_id_from_latest_instance_of(application)
     # Moves the window to the current desktop, raises it und gives it focus
-    subprocess.run(["wmctrl", "-R", application])
+    subprocess.run(["wmctrl", "-i", "-R", app_id])
     logging.debug(
         "focus_instance_of: Putting {0} in focus".format(application))
 
