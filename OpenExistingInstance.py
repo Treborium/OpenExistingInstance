@@ -15,7 +15,6 @@ def get_id_of_latest_instance_of(application):
     for line in reversed(running_applications):
         if application in line:
             return line.split(" ")[0]
-    return -1
 
 
 def is_instance_already_open(application):
@@ -40,24 +39,21 @@ def open_new_instance_of(application):
 def focus_instance_of(application):
     # Moves the window to the current desktop, raises it und gives it focus
     app_id = get_id_of_latest_instance_of(application)
-    if (app_id < 0):
-        # TODO: Handle Error!
-        logging.error("")
-    else:
-        subprocess.run(["wmctrl", "-i", "-R", app_id])
-        logging.debug(
-            "focus_instance_of: Putting {0} with ID = {1} in focus".format(application, app_id))
+    if app_id is None:
+        raise AttributeError
+    subprocess.run(["wmctrl", "-i", "-R", app_id])
+    logging.debug(
+        "focus_instance_of: Putting {0} with ID = {1} in focus".format(application, app_id))
 
 
 if __name__ == "__main__":
     # TODO: create log file relative to script path instead of home directory
+    logger_format = '%(asctime)s - %(levelname)s - %(message)s'
     logging.basicConfig(
-        filename="OpenExistingInstance.debug", level=logging.DEBUG)
+        filename="OpenExistingInstance.debug", level=logging.DEBUG, format = logger_format)
 
-    # application = sys.argv[1]
-    # new_application = sys.argv[2] if len(sys.argv) > 1 else application
-    application = "furo@Ubuntu"
-    new_application = "hyper"
+    application = sys.argv[1]
+    new_application = sys.argv[2] if len(sys.argv) > 1 else application
 
     if (is_instance_already_open(application)):
         focus_instance_of(application)
