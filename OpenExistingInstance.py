@@ -3,14 +3,22 @@ import subprocess
 import logging
 import sys
 
-
-def is_instance_already_open(application):
-    output = subprocess.run(
+def get_running_instances_of(application):
+    return subprocess.run(
         # list all running windows
         ["wmctrl", "-l"], stdout=subprocess.PIPE).stdout.decode("utf-8")
 
-    logging.debug("is_instance_already_open:\n{0}".format(output))
-    return application in output
+def get_id_from_latest_instance_of(application):
+    running_applications = get_running_instances_of(application).split("\n")
+    for line in reversed(running_applications):
+        if application.lower() in line.lower():
+            return line.split(" ")[0]
+
+def is_instance_already_open(application):
+    running_applications = get_running_instances_of(application)
+    
+    logging.debug("is_instance_already_open:\n{0}".format(running_applications))
+    return application in running_applications
 
 
 def open_new_instance_of(application):
