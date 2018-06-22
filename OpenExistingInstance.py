@@ -2,6 +2,7 @@
 import subprocess
 import logging
 import sys
+import os
 
 
 def get_running_instances():
@@ -49,10 +50,10 @@ def focus_instance_of(application):
 
 def setup_logging():
     logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
+    file_path = os.getcwd() + "/OpenExistingInstance.log"
     logging.basicConfig(
-        filename="OpenExistingInstance.log", level=logging.DEBUG, format=logFormatter)
+        filename=file_path, level=logging.DEBUG, format=logFormatter)
     logging.debug("---------------------------------------------")
-        
 
 
 if __name__ == "__main__":
@@ -61,8 +62,10 @@ if __name__ == "__main__":
     application = sys.argv[1].lower()
     new_application = sys.argv[2].lower() if len(sys.argv) > 1 else application
 
-    logging.debug("Command Line Arguments: {0} {1}".format(sys.argv[1], sys.argv[2]))
-    logging.debug("application = {0} new_application = {1}".format(application, new_application))
+    logging.debug("Command Line Arguments: {0} {1}".format(
+        sys.argv[1], sys.argv[2]))
+    logging.debug("application = {0} new_application = {1}".format(
+        application, new_application))
 
     if (is_instance_already_open(application)):
         focus_instance_of(application)
