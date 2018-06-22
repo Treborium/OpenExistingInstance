@@ -51,6 +51,8 @@ def setup_logging():
     logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
     logging.basicConfig(
         filename="OpenExistingInstance.log", level=logging.DEBUG, format=logFormatter)
+    logging.debug("---------------------------------------------")
+        
 
 
 if __name__ == "__main__":
@@ -59,7 +61,6 @@ if __name__ == "__main__":
     application = sys.argv[1].lower()
     new_application = sys.argv[2].lower() if len(sys.argv) > 1 else application
 
-    logging.debug("---------------------------------------------")
     logging.debug("Command Line Arguments: {0} {1}".format(sys.argv[1], sys.argv[2]))
     logging.debug("application = {0} new_application = {1}".format(application, new_application))
 
