@@ -1,0 +1,82 @@
+2018-06-22 09:35:00,952 - DEBUG - is_instance_already_open:
+0x03200003  0 ubuntu treborium (robert) - firefox nightly
+0x02e00006  2 ubuntu slack - logmein
+0x04c00001  1 ubuntu openexistinginstance.py - openexistinginstance - visual studio code
+0x02200001  2 ubuntu whatsapp
+0x04e00005  1 ubuntu hyper
+0x04000041  1 ubuntu sls-mvp1 [/home/furo/services/sls-mvp1] - .../src/main/java/com/logmein/sls/slsapplication.java [sls-mvp1] - intellij idea
+0x040000bc  1 ubuntu tip of the day
+0x040000f2  1 ubuntu rtcprovisioning-service [/home/furo/services/provisioning-service] - .../src/main/java/com/citrix/provisioning/monitoring/functionalstatusserviceimpl.java [rtcprovisioning-service] - intellij idea
+0x06400015  1 ubuntu settings
+0x04800007  1 ubuntu home
+0x05c00084  1 ubuntu openexistinginstance.log (~/) - gedit
+
+2018-06-22 09:35:58,632 - DEBUG - is_instance_already_open:
+0x03200003  0 ubuntu treborium (robert) - firefox nightly
+0x02e00006  2 ubuntu slack - logmein
+0x04c00001  1 ubuntu openexistinginstance.py - openexistinginstance - visual studio code
+0x02200001  2 ubuntu whatsapp
+0x04e00005  1 ubuntu hyper
+0x04000041  1 ubuntu sls-mvp1 [/home/furo/services/sls-mvp1] - .../src/main/java/com/logmein/sls/slsapplication.java [sls-mvp1] - intellij idea
+0x040000bc  1 ubuntu tip of the day
+0x040000f2  1 ubuntu rtcprovisioning-service [/home/furo/services/provisioning-service] - .../src/main/java/com/citrix/provisioning/monitoring/functionalstatusserviceimpl.java [rtcprovisioning-service] - intellij idea
+0x06400015  1 ubuntu settings
+0x04800007  1 ubuntu home
+0x05c00084  1 ubuntu openexistinginstance.log (~/) - gedit
+
+2018-06-22 09:35:59,065 - DEBUG - open_new_instance_of: Opening new instance of hyper
+2018-06-22 09:37:28,749 - DEBUG - is_instance_already_open:
+0x03200003  0 ubuntu diigo - dive into python 3.pdf - firefox nightly
+0x02e00006  2 ubuntu slack - logmein
+0x04c00001  1 ubuntu openexistinginstance.py - openexistinginstance - visual studio code
+0x02200001  2 ubuntu whatsapp
+0x04e00005  1 ubuntu hyper
+0x04000041  1 ubuntu sls-mvp1 [/home/furo/services/sls-mvp1] - .../src/main/java/com/logmein/sls/slsapplication.java [sls-mvp1] - intellij idea
+0x040000bc  1 ubuntu tip of the day
+0x040000f2  1 ubuntu rtcprovisioning-service [/home/furo/services/provisioning-service] - .../src/main/java/com/citrix/provisioning/monitoring/functionalstatusserviceimpl.java [rtcprovisioning-service] - intellij idea
+0x06400015  1 ubuntu settings
+0x04800007  1 ubuntu home
+0x05c00084  1 ubuntu openexistinginstance.log (~/) - gedit
+
+2018-06-22 09:37:54,719 - DEBUG - is_instance_already_open:
+0x03200003  0 ubuntu diigo - dive into python 3.pdf - firefox nightly
+0x02e00006  2 ubuntu slack - logmein
+0x04c00001  1 ubuntu openexistinginstance.py - openexistinginstance - visual studio code
+0x02200001  2 ubuntu whatsapp
+0x04e00005  1 ubuntu hyper
+0x04000041  1 ubuntu sls-mvp1 [/home/furo/services/sls-mvp1] - .../src/main/java/com/logmein/sls/slsapplication.java [sls-mvp1] - intellij idea
+0x040000bc  1 ubuntu tip of the day
+0x040000f2  1 ubuntu rtcprovisioning-service [/home/furo/services/provisioning-service] - .../src/main/java/com/citrix/provisioning/monitoring/functionalstatusserviceimpl.java [rtcprovisioning-service] - intellij idea
+0x06400015  1 ubuntu settings
+0x04800007  1 ubuntu home
+0x05c00084  1 ubuntu openexistinginstance.log (~/) - gedit
+
+2018-06-22 09:37:54,831 - DEBUG - focus_instance_of: Putting hyper with ID = 0x04e00005 in focus
+2018-06-22 09:41:38,946 - DEBUG - application = hyper new_application = hyper
+2018-06-22 09:41:38,951 - DEBUG - is_instance_already_open:
+0x03200003  0 ubuntu diigo - dive into python 3.pdf - firefox nightly
+0x02e00006  2 ubuntu slack - logmein
+0x04c00001  1 ubuntu openexistinginstance.py - openexistinginstance - visual studio code
+0x02200001  2 ubuntu whatsapp
+0x04e00005  1 ubuntu hyper
+0x04000041  1 ubuntu sls-mvp1 [/home/furo/services/sls-mvp1] - .../src/main/java/com/logmein/sls/slsapplication.java [sls-mvp1] - intellij idea
+0x040000bc  1 ubuntu tip of the day
+0x040000f2  1 ubuntu rtcprovisioning-service [/home/furo/services/provisioning-service] - .../src/main/java/com/citrix/provisioning/monitoring/functionalstatusserviceimpl.java [rtcprovisioning-service] - intellij idea
+0x06400015  1 ubuntu settings
+0x04800007  1 ubuntu home
+
+2018-06-22 09:41:39,062 - DEBUG - focus_instance_of: Putting hyper with ID = 0x04e00005 in focus
+2018-06-22 09:42:31,009 - DEBUG - application = hyper new_application = hyper
+2018-06-22 09:42:31,017 - DEBUG - is_instance_already_open:
+0x03200003  0 ubuntu diigo - dive into python 3.pdf - firefox nightly
+0x02e00006  2 ubuntu slack - logmein
+0x04c00001  1 ubuntu openexistinginstance.py - openexistinginstance - visual studio code
+0x02200001  2 ubuntu whatsapp
+0x04e00005  1 ubuntu hyper
+0x04000041  1 ubuntu sls-mvp1 [/home/furo/services/sls-mvp1] - .../src/main/java/com/logmein/sls/slsapplication.java [sls-mvp1] - intellij idea
+0x040000bc  1 ubuntu tip of the day
+0x040000f2  1 ubuntu rtcprovisioning-service [/home/furo/services/provisioning-service] - .../src/main/java/com/citrix/provisioning/monitoring/functionalstatusserviceimpl.java [rtcprovisioning-service] - intellij idea
+0x06400015  1 ubuntu settings
+0x04800007  1 ubuntu home
+
+2018-06-22 09:42:31,128 - DEBUG - focus_instance_of: Putting hyper with ID = 0x04e00005 in focus

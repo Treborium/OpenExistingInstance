@@ -13,7 +13,7 @@ def get_running_instances():
 def get_id_from_latest_instance_of(application):
     running_applications = get_running_instances().split("\n")
     for line in reversed(running_applications):
-        if application in line.lower:
+        if application in line:
             return line.split(" ")[0]
 
 
@@ -54,8 +54,14 @@ def setup_logging():
 
 
 if __name__ == "__main__":
+    setup_logging()
+
     application = sys.argv[1].lower()
     new_application = sys.argv[2].lower() if len(sys.argv) > 1 else application
+
+    logging.debug("---------------------------------------------")
+    logging.debug("Command Line Arguments: {0} {1}".format(sys.argv[1], sys.argv[2]))
+    logging.debug("application = {0} new_application = {1}".format(application, new_application))
 
     if (is_instance_already_open(application)):
         focus_instance_of(application)
