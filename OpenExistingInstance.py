@@ -4,21 +4,21 @@ import logging
 import sys
 
 
-def get_running_instances_of(application):
+def get_running_instances:
     return subprocess.run(
         # list all running windows
         ["wmctrl", "-l"], stdout=subprocess.PIPE).stdout.decode("utf-8")
 
 
 def get_id_from_latest_instance_of(application):
-    running_applications = get_running_instances_of(application).split("\n")
+    running_applications = get_running_instances().split("\n")
     for line in reversed(running_applications):
         if application.lower() in line.lower():
             return line.split(" ")[0]
 
 
 def is_instance_already_open(application):
-    running_applications = get_running_instances_of(application)
+    running_applications = get_running_instances()
 
     logging.debug("is_instance_already_open:\n{0}".format(
         running_applications))
@@ -38,6 +38,9 @@ def open_new_instance_of(application):
 
 def focus_instance_of(application):
     app_id = get_id_from_latest_instance_of(application)
+    if app_id == None:
+        # TODO: return meaningfull error message
+        raise AttributeError("No app found")
     # Moves the window to the current desktop, raises it und gives it focus
     subprocess.run(["wmctrl", "-i", "-R", app_id])
     logging.debug(
