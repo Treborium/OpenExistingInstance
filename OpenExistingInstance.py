@@ -50,7 +50,7 @@ def focus_instance_of(application):
 
 def setup_logging():
     logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
-    file_path = os.getcwd() + "/OpenExistingInstance.log"
+    file_path = os.path.realpath("OpenExistingInstance.log")
     logging.basicConfig(
         filename=file_path, level=logging.DEBUG, format=logFormatter)
     logging.debug("---------------------------------------------")
