@@ -7,27 +7,32 @@ import sys
 
 
 def extract_output_from_completed_process(process):
-    return process.stdout.decode('utf-8')
+    # Removes trailing new lines
+    return process.stdout.decode('utf-8').rstrip()
 
 
-def get_id_of(app):
+def get_id_of(app_id):
     output = extract_output_from_completed_process(
-        subprocess.run(["xdotool", "search", app], stdout=subprocess.PIPE))
+        subprocess.run(["xdotool", "search", app_id], stdout=subprocess.PIPE))
 
     if not output:
         return None
-    # return second last element because the last one is an empty string
-    return output.split('\n')[-2]
+
+    return output.split('\n')[-1]
 
 
-def is_instance_already_open(app):
-    return get_id_of(app) != None
+def is_instance_already_open(app_id):
+    return get_id_of(app_id) != None
 
 
-def move_and_raise_instance_of(app):
+def move_and_raise_instance_of(app_id):
+    app_id = get_id_of(app_id)
     desktop_number = extract_output_from_completed_process(
         subprocess.run(["xdotool", "get_desktop"], stdout=subprocess.PIPE))
-    subprocess.run(["xdotool", "set_desktop_for_window", app, desktop_number])
+
+    subprocess.run(
+        ["xdotool", "set_desktop_for_window", app_id, desktop_number])
+    # subprocess.run(["xdotool", "windowactivate", app_id])
 
 
 def setup_logging():
@@ -41,4 +46,6 @@ def setup_logging():
 if __name__ == "__main__":
     # setup_logging()
 
-    print(is_instance_already_open("gedit"))
+    app_id = get_id_of("hyper")
+    if (is_instance_already_open(app_id)):
+        move_and_raise_instance_of(app_id)
