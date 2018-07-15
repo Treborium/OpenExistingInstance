@@ -4,6 +4,7 @@ import logging
 import os
 import subprocess
 import sys
+import time
 
 
 def extract_output_from_completed_process(process):
@@ -18,21 +19,28 @@ def get_id_of(app_id):
     if not output:
         return None
 
-    return output.split('\n')[-1]
+    # NOTE: the output for hyper is incorrect if the window is on a different dektop.
+    # The Value that should be last (which is therefor the correct ID for the window)
+    # is on the first postion if hyper is on a differenct desktop
+
+    id = output.split('\n')[-1]
+    return id
 
 
 def is_instance_already_open(app_id):
-    return get_id_of(app_id) != None
+    return app_id != None
 
 
 def move_and_raise_instance_of(app_id):
-    app_id = get_id_of(app_id)
     desktop_number = extract_output_from_completed_process(
         subprocess.run(["xdotool", "get_desktop"], stdout=subprocess.PIPE))
 
     subprocess.run(
         ["xdotool", "set_desktop_for_window", app_id, desktop_number])
-    # subprocess.run(["xdotool", "windowactivate", app_id])
+
+    time.sleep(0.1)
+
+    subprocess.run(["xdotool", "windowactivate", "--sync", app_id])
 
 
 def setup_logging():
@@ -46,6 +54,7 @@ def setup_logging():
 if __name__ == "__main__":
     # setup_logging()
 
-    app_id = get_id_of("hyper")
+    app_id = get_id_of("whatsapp")
     if (is_instance_already_open(app_id)):
         move_and_raise_instance_of(app_id)
+
