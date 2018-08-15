@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-""" Open Exisiting Instance
+""" Open Existing Instance
 
 """
 
-#TODO: Write script doc string
+# TODO: Write script doc string
 
 import subprocess
 import logging
@@ -13,7 +13,7 @@ import os
 
 def get_running_instances() -> str:
     """
-    Returns a lower case string of instances for all currently running programs.
+    Returns a lower case string of instances for all currently running programs
     The string is divided by new lines ("\\n").
 
     Returns:
@@ -21,7 +21,9 @@ def get_running_instances() -> str:
     """
     return subprocess.run(
         # list all running windows
-        ["wmctrl", "-l"], stdout=subprocess.PIPE).stdout.decode("utf-8").lower()
+        ["wmctrl", "-l"], stdout=subprocess.PIPE) \
+        .stdout \
+        .decode("utf-8").lower()
 
 
 def get_id_from_latest_instance_of(application: str) -> int:
@@ -29,10 +31,10 @@ def get_id_from_latest_instance_of(application: str) -> int:
     Returns the ID of the most recently opened instance of an app.
 
     This function assumes that there is at least one instance of
-    the app running. 
+    the app running.
 
     Parameters:
-        application (str): The applications name to search the latest instance of
+        application (str): Applications name to search the latest instance of
 
     Returns:
         int: The ID of the instance of the specified app
@@ -48,7 +50,7 @@ def is_instance_already_open(application: str) -> bool:
     Check wether a instance of an application is already running.
 
     Parameters:
-     application (str): The application to be checked 
+     application (str): The application to be checked
 
     Returns:
         bool: True if there is a instance of the app running, otherwise false
@@ -71,10 +73,17 @@ def open_new_instance_of(application: str) -> None:
     if return_code != 0:
         # TODO: handle error
         logging.error(
-            "open_new_instance_of: Failed to open new instance of {0}! Error code: {1}".format(application, return_code))
+            """
+            open_new_instance_of: Failed to open new instance of {0}
+            Error code: {1}
+             """
+            .format(application, return_code)
+        )
     else:
         logging.debug(
-            "open_new_instance_of: Opening new instance of {0}".format(application))
+            "open_new_instance_of: Opening new instance of {0}"
+            .format(application)
+        )
 
 
 def focus_instance_of(application: str) -> None:
@@ -85,20 +94,23 @@ def focus_instance_of(application: str) -> None:
         application (str): The application to focus
     """
     app_id = get_id_from_latest_instance_of(application)
-    if app_id == None:
+    if app_id is None:
         # TODO: return meaningfull error message
         raise AttributeError("No app found")
     # Move the window to the current desktop, raise it und give it focus
     subprocess.run(["wmctrl", "-i", "-R", app_id])
     logging.debug(
-        "focus_instance_of: Putting {0} with ID = {1} in focus".format(application, app_id))
+        "focus_instance_of: Putting {0} with ID = {1} in focus"
+        .format(application, app_id)
+    )
 
 
 def setup_logging() -> None:
     """
-    Set default properties for logging to a file named "OpenExistingInstance.log". 
+    Set default properties for logging to a file.
 
-    The default properties include the time, logging level (DEBUG) and the log message.
+    The default properties include the time, logging level (DEBUG)
+    and the log message. The filename is "OpenExistingInstance.log".
     """
     logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
     file_path = os.path.realpath("OpenExistingInstance.log")
