@@ -19,9 +19,8 @@ def get_running_instances() -> str:
     Returns:
         str: a new line delimited string of all running instances
     """
-    return subprocess.run(
-        # list all running windows
-        ["wmctrl", "-l"], stdout=subprocess.PIPE) \
+    # list all running windows
+    return subprocess.run(["wmctrl", "-l"], stdout=subprocess.PIPE) \
         .stdout \
         .decode("utf-8").lower()
 
