@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+""" Open Exisiting Instance
+
+"""
+
+#TODO: Write script doc string
+
 import subprocess
 import logging
 import sys
@@ -6,12 +12,37 @@ import os
 
 
 def get_running_instances() -> str:
+    """
+    Returns a lower case string of instances for all currently running programs.
+    The string is divided by new lines ("\\n").
+
+    Returns
+    -------
+    str
+        a new line delimited string of all running instances
+    """
     return subprocess.run(
         # list all running windows
         ["wmctrl", "-l"], stdout=subprocess.PIPE).stdout.decode("utf-8").lower()
 
 
 def get_id_from_latest_instance_of(application: str) -> int:
+    """
+    Returns the ID of the most recently opened instance of an app.
+
+    This function assumes that there is at least one instance of
+    the app running. 
+
+    Parameters
+    ----------
+    application : str
+        The applications name to search the latest instance of
+
+    Returns
+    -------
+    int
+        The ID of the instance of the specified app
+    """
     running_applications = get_running_instances().split("\n")
     for line in reversed(running_applications):
         if application in line:
@@ -19,6 +50,19 @@ def get_id_from_latest_instance_of(application: str) -> int:
 
 
 def is_instance_already_open(application: str) -> bool:
+    """
+    Check wether a instance of an application is already running.
+
+    Parameters
+    ----------
+    application : str
+        The application to be checked 
+
+    Returns
+    -------
+    bool
+        True if there is a instance of the app running, otherwise false
+    """
     running_applications = get_running_instances()
 
     logging.debug("is_instance_already_open:\n{0}".format(
@@ -27,6 +71,14 @@ def is_instance_already_open(application: str) -> bool:
 
 
 def open_new_instance_of(application: str) -> None:
+    """
+    Open a new instance of an application.
+
+    Parameters
+    ----------
+    application : str
+        The application to be started
+    """
     return_code = subprocess.call([application])
     if return_code != 0:
         # TODO: handle error
@@ -38,6 +90,15 @@ def open_new_instance_of(application: str) -> None:
 
 
 def focus_instance_of(application: str) -> None:
+    """
+    Focus the latest instance of a running application.
+
+    Parameters
+    ---------
+    application : str
+        The application to focus
+
+    """
     app_id = get_id_from_latest_instance_of(application)
     if app_id == None:
         # TODO: return meaningfull error message
@@ -49,6 +110,11 @@ def focus_instance_of(application: str) -> None:
 
 
 def setup_logging() -> None:
+    """
+    Set default properties for logging to a file named "OpenExistingInstance.log". 
+
+    The default properties include the time, logging level (DEBUG) and the log message.
+    """
     logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
     file_path = os.path.realpath("OpenExistingInstance.log")
     logging.basicConfig(
